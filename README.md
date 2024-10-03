@@ -12,14 +12,14 @@ s3-student-mle-20240919-f8666628fb
 ```
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/dags/churn.py
 ```
-### Описание дага
+***Описание дага***
 С помощью Airflow собираем две таблицы в единый датасет с характеристиками квартир в персональной базе данных.
  - На этапе create_table создаем пустую таблицу real_estate_churn.
  - На этапе extract джойним 2 таблицы buildings и flats по ключу id-building_id.
  - На этапе transform пока ничего не предпринимаем.
  - На этапе load грузим в таблицу real_estate_churn.
 
-### Ноутбук:
+***Ноутбук***
 ```
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/select.ipynb
 ```
@@ -30,14 +30,14 @@ s3-student-mle-20240919-f8666628fb
 ```
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/dags/clean_churn.py
 ```
-### Описание дага
+***Описание дага***
 Анализируем данные на наличие наиболее распространённых проблем: дубликатов, пропусков и выбросов. 
  - На этапе create_table создаем пустую таблицу clean_real_estate_churn.
  - На этапе extract забираем все данные из таблицы real_estate_churn.
  - На этапе transform избавляемся от дублей, пропусков и выбросов.
  - На этапе load грузим в таблицу clean_real_estate_churn.
 
-### Ноутбуки:
+***Ноутбуки***
 ```
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/dataset_data_analyze.ipynb
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/dataset_preprocc.ipynb
@@ -51,10 +51,10 @@ s3-student-mle-20240919-f8666628fb
 /home/mle-user/mle_projects/mle-project-sprint-1/part2_dvc/
 ```
 
-### Описание этапов DVC-пайплайна
+***Описание этапов DVC-пайплайна***
 
 
-### Ноутбуки:
+***Ноутбуки***
 ```
 /home/mle-user/mle_projects/mle-project-sprint-1/part2_dvc/notebooks/dataset_data_analyze.ipynb
 ```
