@@ -13,6 +13,7 @@ s3-student-mle-20240919-f8666628fb
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/dags/churn.py
 ```
 ***Описание дага***
+
 С помощью Airflow собираем две таблицы в единый датасет с характеристиками квартир в персональной базе данных.
  - На этапе create_table создаем пустую таблицу real_estate_churn.
  - На этапе extract джойним 2 таблицы buildings и flats по ключу id-building_id.
@@ -31,6 +32,7 @@ s3-student-mle-20240919-f8666628fb
 /home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/dags/clean_churn.py
 ```
 ***Описание дага***
+
 Анализируем данные на наличие наиболее распространённых проблем: дубликатов, пропусков и выбросов. 
  - На этапе create_table создаем пустую таблицу clean_real_estate_churn.
  - На этапе extract забираем все данные из таблицы real_estate_churn.
