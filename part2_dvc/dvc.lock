@@ -24,8 +24,8 @@ stages:
       size: 12406924
     - path: scripts/fit.py
       hash: md5
-      md5: a15a2cbf4f200f6575f8d221330d1fa3
-      size: 1518
+      md5: 24f2123ae992944d4e56f6d38a4fcca7
+      size: 1521
     params:
       params.yaml:
         index_col: id
@@ -35,5 +35,29 @@ stages:
     outs:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: 50a77e7ce720e75cf06bbdc7da3c8050
+      md5: 6afc98d1009deb88144473903b2d1ad1
       size: 1117539
+  evaluate_model:
+    cmd: python scripts/evaluate.py
+    deps:
+    - path: models/fitted_model.pkl
+      hash: md5
+      md5: 6afc98d1009deb88144473903b2d1ad1
+      size: 1117539
+    - path: scripts/evaluate.py
+      hash: md5
+      md5: 2f78f265feb90f8c909101ca7ce82e44
+      size: 1387
+    params:
+      params.yaml:
+        index_col: id
+        metrics:
+        - r2
+        - neg_mean_squared_error
+        n_splits: 5
+        target_col: price
+    outs:
+    - path: cv_results/cv_res.json
+      hash: md5
+      md5: 84e2502f2f4a3aefd531d3a192c75001
+      size: 111

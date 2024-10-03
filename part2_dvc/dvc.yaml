@@ -29,7 +29,6 @@ stages:
       - index_col
       - target_col
       - n_splits
-      - n_jobs
       - metrics
     outs:
       - cv_results/cv_res.json
