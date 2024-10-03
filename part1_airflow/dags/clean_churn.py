@@ -31,12 +31,12 @@ def clean_real_estate_churn_dataset():
             Column('ceiling_height', Float),
             Column('flats_count', Integer),
             Column('floors_total', Integer),
-            Column('has_elevator', Integer),
+            Column('has_elevator', Boolean),
             Column('floor', Integer),
             Column('kitchen_area', Float),
             Column('living_area', Float),
             Column('rooms', Integer),
-            Column('is_apartment', Integer),
+            Column('is_apartment', Boolean),
             Column('total_area', Float),
             Column('price', BigInteger),
             UniqueConstraint('id', name='unique_clean_id_constraint')
@@ -77,12 +77,12 @@ def clean_real_estate_churn_dataset():
 
             return data
         
-        # encoding bool features
-        def bool_to_bincat(data):
-            feature_cols = data.columns.drop('id').tolist()
-            bool_cols = data[feature_cols].select_dtypes(['bool']).columns
-            data[bool_cols] = data[bool_cols]*1
-            return data
+        # # encoding bool features -> перенес на этап preprocessor в dvc-пайплайне
+        # def bool_to_bincat(data):
+        #     feature_cols = data.columns.drop('id').tolist()
+        #     bool_cols = data[feature_cols].select_dtypes(['bool']).columns
+        #     data[bool_cols] = data[bool_cols]*1
+        #     return data
 
         # Заполнение пропусков
         def fill_missing_values(data):
@@ -113,7 +113,7 @@ def clean_real_estate_churn_dataset():
             return data[~outliers]
         
         data = remove_duplicates(data)
-        data = bool_to_bincat(data)
+        # data = bool_to_bincat(data)
         data = fill_missing_values(data)
         data = remove_outliers(data)
 

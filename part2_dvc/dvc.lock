@@ -1,0 +1,39 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python scripts/data.py
+    deps:
+    - path: scripts/data.py
+      hash: md5
+      md5: 50d9c4b36ff1f319b8e42c1fd3d760de
+      size: 1499
+    params:
+      params.yaml:
+        index_col: id
+    outs:
+    - path: data/initial_data.csv
+      hash: md5
+      md5: a1d6aec29d94d115344cede3eae3192d
+      size: 12406924
+  fit_model:
+    cmd: python scripts/fit.py
+    deps:
+    - path: data/initial_data.csv
+      hash: md5
+      md5: a1d6aec29d94d115344cede3eae3192d
+      size: 12406924
+    - path: scripts/fit.py
+      hash: md5
+      md5: a15a2cbf4f200f6575f8d221330d1fa3
+      size: 1518
+    params:
+      params.yaml:
+        index_col: id
+        loss_function: RMSE
+        one_hot_drop: if_binary
+        target_col: price
+    outs:
+    - path: models/fitted_model.pkl
+      hash: md5
+      md5: 50a77e7ce720e75cf06bbdc7da3c8050
+      size: 1117539
