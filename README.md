@@ -8,9 +8,8 @@
 
 ## Этап 1. Сбор данных
 Даг по выгрузке данных из исходного источника в таблицу `real_estate_churn`:
-```
-/home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/dags/churn.py
-```
+`part1_airflow/dags/churn.py`
+
 ***Описание дага***
 
 С помощью Airflow собираем две таблицы в единый датасет с характеристиками квартир в персональной базе данных.
@@ -21,15 +20,15 @@
 
 ***Ноутбук***
 ```
-/home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/select.ipynb
+part1_airflow/notebooks/select.ipynb
 ```
-
 
 ## Этап 2. Очистка данных
 Даг по очистке данных из таблицы `real_estate_churn` в таблицу `clean_real_estate_churn`:
 ```
-/home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/dags/clean_churn.py
+part1_airflow/dags/clean_churn.py
 ```
+
 ***Описание дага***
 
 Анализируем данные на наличие наиболее распространённых проблем: дубликатов, пропусков и выбросов. 
@@ -40,16 +39,16 @@
 
 ***Ноутбуки***
 ```
-/home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/dataset_data_analyze.ipynb
-/home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/dataset_preprocc.ipynb
-/home/mle-user/mle_projects/mle-project-sprint-1/part1_airflow/notebooks/delete_table.ipynb
+part1_airflow/notebooks/dataset_data_analyze.ipynb
+part1_airflow/notebooks/dataset_preprocc.ipynb
+part1_airflow/notebooks/delete_table.ipynb
 ```
 
 
 ## Этап 3. Создание DVC-пайплайна обучения модели
 Даг по обучению, оценке и сохранению модели, запуску DVC-пайплайна: 
 ```
-/home/mle-user/mle_projects/mle-project-sprint-1/part2_dvc/
+part2_dvc/
 ```
 
 ***Описание этапов DVC-пайплайна***
@@ -57,7 +56,7 @@
 
 ***Ноутбуки***
 ```
-/home/mle-user/mle_projects/mle-project-sprint-1/part2_dvc/notebooks/dataset_data_analyze.ipynb
+part2_dvc/notebooks/dataset_data_analyze.ipynb
 ```
 путь до файлов с Python-кодом для этапов DVC-пайплайна;
 путь до файлов с конфигурацией DVC-пайплайна dvc.yaml, params.yaml, dvc.lock.
