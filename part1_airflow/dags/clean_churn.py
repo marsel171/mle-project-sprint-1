@@ -65,7 +65,11 @@ def clean_real_estate_churn_dataset():
         # Очистка данных от дубликатов, лишних фичей и артефактные price
         def remove_duplicates(data):
             feature_cols = data.columns.drop('id').tolist()
-            is_duplicated_features = data.duplicated(subset=feature_cols, keep=False)
+
+            # Отлично, дубли очищены! Возможно стоит оставлять один экземпляр (например, установить keep=first)
+            is_duplicated_features = data.duplicated(subset=feature_cols, keep="first")
+            # is_duplicated_features = data.duplicated(subset=feature_cols, keep=False)
+            
             data = data[~is_duplicated_features].reset_index(drop=True)
 
             # удаляем колонку studio (т.к. в выборке всегда одно значение = 0)

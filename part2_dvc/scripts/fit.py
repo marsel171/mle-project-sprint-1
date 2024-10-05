@@ -27,7 +27,10 @@ def fit_model():
 
     preprocessor = ColumnTransformer(
         [
+        # Возможно для категориальных признаков стоит использовать библиотеку category encoders. 
+        # Она хорошо подходит для кодирования категориальных признаков.
         ('binary', OneHotEncoder(drop=params['one_hot_drop']), binary_bool_features.columns.tolist()),
+        # На подумать: при использовании градиентного бустинга в качестве модели нужно ли применять StandartScaler для числовых признаков?
         ('num', StandardScaler(), num_features.columns.tolist())
         ],
         remainder='drop',
